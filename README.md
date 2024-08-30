@@ -7,6 +7,7 @@
 
 # 2 Methodology
 
+## 2.1 Deploy the base lab infrastructure
 
 ## 2.2 Configure the ECS repository and deploy the application stack
 
