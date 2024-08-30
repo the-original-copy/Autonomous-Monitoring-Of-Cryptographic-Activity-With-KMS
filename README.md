@@ -12,5 +12,10 @@
 
 ## 2.3 Configure CloudTrail
 
+## 2.4 Configure the workload and logging alarm
+
+## 2.5 Test the workload functionality
+
+# 3 Conclusion
 
  
