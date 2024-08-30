@@ -62,7 +62,43 @@ After executing the create stack command I had to ensure that the stack was crea
 
 </div>
 
+As a final confirmation procedure I went to the amazon console and as shown below the stack was successfully created.
+
+<div align="center">
+
+ ![image](https://github.com/user-attachments/assets/dff3913d-625b-47b1-8218-3d22b1e8f850)
+<br/>Image 4: Cloud Formation tack panel 
+
+</div>
+
 ## 2.2 Configure the ECS repository and deploy the application stack
+
+In this section I had to prepare the sample application. I had to package it as a docker image and push it to a repository. Since I did this lab after the cloud 9 services had been discontinued I packaged the docker image and pushed it to the repository from my local machine.
+
+### i) Configure the ECS Container Repository.
+
+#### Download sample_app.zip
+
+I successfully managed to install the sample_app.zip file as shown in the image below:
+<div align="center">
+
+  ![image](https://github.com/user-attachments/assets/844c220f-8299-42fa-adb9-0f0c405eb47b)
+<br/>Image 5: Sample app installed 
+
+</div>
+
+#### Altered Docker permissions
+
+Before proceeding to the next step I saw it fit to alter docker default permissions. I added docker to the sudo group so that docker commands can run at the administrative level without requiring the sudo key word as confirmed in the image below:
+
+<div align="center">
+
+![image](https://github.com/user-attachments/assets/1e2f638b-769e-4856-8d5d-800247485ffa)
+<br/>Image 6: Modified docker permissions
+
+</div>
+
+
 
 ## 2.3 Configure CloudTrail
 
