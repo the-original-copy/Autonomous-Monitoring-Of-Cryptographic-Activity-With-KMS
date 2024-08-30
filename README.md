@@ -17,7 +17,50 @@ activity metrics, architects can identify potentially malicious behavior early o
 
 # 2. Methodology
 
+In order to achieve the intended goal of autonomous monitoring of cyrtographic activities with KMS I would have to accomplish the following tasks:
+1. Deploy the base lab infrastructure
+2. Configure the ECS repository and deploy the application stack
+3. Configure CloudTrail
+4. Configure the workload and logging alarm
+5. Test the workload functionality
+
 ## 2.1 Deploy the base lab infrastructure
+
+In order to perform this lab I had to have certain prerequisites which included an aws account that is able to be used for testing, the ability to execute aws commands in cli
+and docker version 18.09.9 or above. The first two prerequisites had already been met, I installed docker as confirmed by the picture below:
+
+<div align="center">
+
+ ![image](https://github.com/user-attachments/assets/33458665-defe-44d7-b601-d2176a318c75)
+<br/>Image 1: Docker version used 
+
+</div>
+
+### i) Get the Cloudformation Template.
+
+I decided to deploy the cloud formation template directly from the command line. I managed to download the CloudFormation Template and proceed to the next steps of the lab.
+
+#### Execute Command
+
+After downloading the template I proceeded to execute the command **aws cloudformation create-stack** in order to create the necessary lab resources as confirmed by the image below:
+
+<div align="center">
+
+  ![image](https://github.com/user-attachments/assets/8200436e-fb71-4df9-9054-92e0a42b8599)
+<br/>Image 2: Create Stack Command 
+
+</div>
+
+#### Confirm the stack is correctly installed
+
+After executing the create stack command I had to ensure that the stack was created successfully. I did this by running the command **aws cloudformation describe-stacks** as shown in the below image. The image also confirms that the StackStatus tag has been set to **CREATE_COMPLETE** which has been highlighted.
+
+<div align="center">
+
+  ![image](https://github.com/user-attachments/assets/0631b02d-201d-49a9-95f2-779820f4987f)
+<br/>Image 3: Describe Stack 
+
+</div>
 
 ## 2.2 Configure the ECS repository and deploy the application stack
 
