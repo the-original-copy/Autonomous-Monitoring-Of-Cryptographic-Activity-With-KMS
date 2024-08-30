@@ -98,7 +98,34 @@ Before proceeding to the next step I saw it fit to alter docker default permissi
 
 </div>
 
+#### Altered build-container.sh file
 
+The script that would build the docker container and push it was already provided. In order to successfully run it from my local machine I had to alter some of the aws commands present in the script. Most alterations made included manually adding the profile and region tags as shown in the image below.
+
+<div align="center">
+
+  ![image](https://github.com/user-attachments/assets/c2ce875a-7f18-458b-a5d6-9f5dcda0daf9)
+<br/>Image 6: Altered build-container.sh file 
+
+</div>
+
+The script also needed variables such as AWS_ACCOUNT and AWS_REGION in order to run properly. The region variable was already provided. In order to get the aws account details I run the command **aws --profile** as shown in the below image. Using those details I was able to insert the details neccesary to deploy the app to docker from my local machine.
+
+<div align="center">
+
+  ![image](https://github.com/user-attachments/assets/04ec4fbc-df56-4f1e-8b3a-f4fdcac882ba)
+<br/>Image 7: aws --profile command executed 
+
+</div>
+
+After altering all the necessary details I run the script which was successful as shown by the image below:
+
+<div align="center">
+
+![image](https://github.com/user-attachments/assets/0493cd16-3711-4d60-8951-3d631f5bb318)
+<br/>Image 8: Succesfully run the deployment script 
+
+</div>
 
 ## 2.3 Configure CloudTrail
 
