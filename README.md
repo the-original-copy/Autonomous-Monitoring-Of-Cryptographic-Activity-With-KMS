@@ -226,6 +226,28 @@ I proceeded to the amazon console to confirm that the stack was successfully cre
 
 ## 2.4 Configure the workload and logging alarm
 
+At this stage I was going to create a filter within my CloudWatch Log Group. This filter is to generate a CloudWatch metric which I will use to create the alarm. In order to create the filter I navigated to CloudWatch, choose the log group I created and from the actions pane selected create metric filter a shown in the image below:
+
+<div align="center">
+
+![image](https://github.com/user-attachments/assets/7421cc86-a18f-43a0-b761-755548bb52cc)
+<br/>Image 17: Creating a Metric Filter
+
+</div>
+
+Next I entered the code given under the Filter pattern as shown in the image below. The code specifies that any error code originating from the AWS key management service matching the OutputPattern1ECSTaskRole identified by its arn should generate an alert.
+
+<div align="center">
+
+  ![image](https://github.com/user-attachments/assets/a89b8526-44ab-461f-8a59-64e6de6815d3)
+<br/>Image 18: Defined the filter pattern  
+
+</div>
+
+Lastly I completed the configuration by assigning the Assign Metric form as specified by the [lab](https://catalog.workshops.aws/well-architected-security/en-US/3-detection/10-autonomous-monitoring-of-cryptographic-activity-with-kms). This is confirmed by the picture below:
+
+
+
 ## 2.5 Test the workload functionality
 
 # 3. Conclusion
