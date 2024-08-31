@@ -311,6 +311,49 @@ After completing the configuration and creating the alarm I received an email an
 
 ## 2.5 Test the workload functionality
 
+At this point I had to test the workload. I did this by running the decrypt API call to the application. This will trigger a failed decrypt event which should result in the alarm being triggered and an SNS notification sent to the email address specified.
+
+### i) Initiate a successful decryption operation
+
+I initiated a successful decryption as shown below:
+
+<div align="center">
+
+  ![image](https://github.com/user-attachments/assets/1e525707-758a-4d5a-821d-ff63b65ffb5b)
+<br/>Image 26: Initiated a successful decryption 
+
+</div>
+
+### ii) Initiate an unsuccessful decryption
+
+Next I initiated Multiple unsuccessful decryption as shown below in order to invoke the alert as shown below:
+
+<div align="center">
+
+  ![image](https://github.com/user-attachments/assets/095b0cfd-ec89-4833-9fd9-baab21619719)
+<br/>Image 27: Initiated an unsuccesful description 
+
+</div>
+
+I then received an email notification triggered by the cloudwatch alarm as shown below:
+
+<div align="center">
+
+![image](https://github.com/user-attachments/assets/636989e2-13fa-45e8-863b-2d8a68ca1d68)  
+<br/>Image 28: Email alarm recieved 
+
+</div>
+
+I clicked the URL in the email and saw an activity change as shown in the email below. The alarm updated from insufficient data to in alarm. The alarm did not update to alarm OK since I sent multiple wrong decryptions as confirmed by the picture below:
+
+<div align="center">
+
+  ![image](https://github.com/user-attachments/assets/dbd4dca3-504f-43d4-a2f7-e08d92ced4a2)
+<br/>Image 29: Activity state
+
+</div>
+
 # 3. Conclusion
 
+In this lab, we demonstrated how to monitor the Key Management Service (KMS) for encryption and decryption activities, detect anomalies, and respond accordingly. By leveraging AWS CloudTrail for capturing API events, Amazon CloudWatch for logging and metric filtering, and Amazon Simple Notification Service (SNS) for alerting, we established a comprehensive monitoring solution. The lab provided both CloudFormation templates and manual steps to set up the necessary infrastructure, enabling flexibility in deployment. Through these tools and techniques, administrators can maintain a high level of security and responsiveness, ensuring the integrity and confidentiality of their applications in the cloud.
  
