@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/635f8d83-7b41-435f-9850-3dea04affb52)# Autonomous-Monitoring-Of-Cryptographic-Activity-With-KMS
+# Autonomous Monitoring Of Cryptographic Activity With KMS
 
 # Table of Contents
 1 [Introduction](https://github.com/the-original-copy/Autonomous-Monitoring-Of-Cryptographic-Activity-With-KMS/blob/main/README.md#1-introduction) </br>
