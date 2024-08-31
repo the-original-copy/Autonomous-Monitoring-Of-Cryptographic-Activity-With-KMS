@@ -160,6 +160,46 @@ Since this was my first time working with the ECS service, I had to deploy a ser
 
 </div>
 
+#### CloudFormation Deployment
+
+After creating the service linked role I had to create the stack called pattern1-app. I did this by first downloading the cloudformation app template the proceeded to run the command **aws cloudformation create-stack** with all the necessary parameters as shown in the image below: 
+
+<div align="center">
+
+  ![image](https://github.com/user-attachments/assets/a28c9fae-6f34-48fb-ad1f-da9bdddd21ad)
+<br/>Image 12: Created the stack pattern1-app
+
+</div>
+
+Next I had to confirm the successful creation of the stack. I proceeded to the cloud formation console and located the stack named pattern1-app whose state was **CREATE-COMPLETE** as shown in the diagram below.
+
+<div align="center">
+
+  ![image](https://github.com/user-attachments/assets/9f77eb5c-f24e-472f-b66b-0fef2e1d4aed)
+<br/>Image 13: Confirmed the stack was created 
+
+</div>
+
+#### Test the Application Launched
+
+Finally I had to confirm that the application had successfully been launched. I recorded the below output details as they would be required later:<br/>
+**StackName:** pattern1-app<br/>
+**OutputPattern1ApplicationEndpoint:** http://patter-patte-p6lcs13cm5hw-1216160412.ap-southeast-2.elb.amazonaws.com/<br/>
+**OutputPattern1ECSTaskRole:** arn:aws:iam::533267206157:role/pattern1-app-Pattern1ECSTaskRole<br/>
+
+After recording the outputs I could now test the encrypt API for the sample application I had just deployed. The application takes a JSON payload with **Name** and
+**Text** key, and will encrypt the value under text key with a designated KMS key. Once the text I encrypted, it will store the encrypted text in the RDS database with the **Name** as the primary key.<br/>
+In order to test the application I created the variable **ALBURL** and assigned it the **OutputPattern1ApplicationEndpoint** as seen in the picture below. Next I used the curl command to send a post request with the action **/encrypt** and the process was successful as seen in the image below:<br/>
+
+<div align="center">
+
+  ![image](https://github.com/user-attachments/assets/6b6def86-64e3-4da3-9574-ab32d4b645a9)
+<br/>Image 14: Successfuly sent the post request 
+
+</div>
+
+I finished this stage of the lab by taking note of the key from the output given. The key has been highlighted.
+
 
 
 ## 2.3 Configure CloudTrail
