@@ -127,6 +127,41 @@ After altering all the necessary details I run the script which was successful a
 
 </div>
 
+The image was successfully pushed to the ECR and I took note to the ESC image URI produced. The URI is highlighted in the image below.
+
+<div align="center">
+ 
+![image](https://github.com/user-attachments/assets/6e5b4829-3560-4d81-ba01-faf6360d9fe9)
+<br/>Image 9: ECS image URI 
+
+</div>
+
+Lastly I confirmed that the image exists in the **Amazon Elastic Container Registry** as confirmed by the picture below.
+
+<div align="center">
+
+  ![image](https://github.com/user-attachments/assets/a2ca5926-f2ab-42d4-bac0-aa6cd948a0c0)
+<br/>Image 10: Private repositories pane 
+
+</div>
+
+### ii) Deploy The Application Stack
+
+Next I had to deploy the application to Amazon ECS. The application is built using nodejs express and the service exposes a REST APPI with **/encrypt** and **/decrypt** actions.
+
+#### Deploying the service linked role
+
+Since this was my first time working with the ECS service, I had to deploy a service linked role which will be able to assume the IAM role to perform the required activities within my account. I used the command **aws iam create-service-linked-role --aws-service-name ecs.amazonaws.com** as shown in the below image: 
+
+<div align="center">
+
+  ![image](https://github.com/user-attachments/assets/da50a427-df3f-4275-b46d-116338b665df)
+<br/>Image 11: Service linked role 
+
+</div>
+
+
+
 ## 2.3 Configure CloudTrail
 
 ## 2.4 Configure the workload and logging alarm
