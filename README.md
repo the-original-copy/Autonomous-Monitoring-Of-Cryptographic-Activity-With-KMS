@@ -1,4 +1,4 @@
-# Autonomous-Monitoring-Of-Cryptographic-Activity-With-KMS
+![image](https://github.com/user-attachments/assets/635f8d83-7b41-435f-9850-3dea04affb52)# Autonomous-Monitoring-Of-Cryptographic-Activity-With-KMS
 
 # Table of Contents
 1 [Introduction](https://github.com/the-original-copy/Autonomous-Monitoring-Of-Cryptographic-Activity-With-KMS/blob/main/README.md#1-introduction) </br>
@@ -211,7 +211,7 @@ I downloaded the logging template and proceeded to execute the command **aws clo
 <div align="center">
 
   ![image](https://github.com/user-attachments/assets/9f5df3c7-fc6f-40bc-9b55-b22e76232b20)
-<br/>Image 15: Created te pattern1-logging tack 
+<br/>Image 15: Created te pattern1-logging stack 
 
 </div>
 
@@ -244,9 +244,70 @@ Next I entered the code given under the Filter pattern as shown in the image bel
 
 </div>
 
-Lastly I completed the configuration by assigning the Assign Metric form as specified by the [lab](https://catalog.workshops.aws/well-architected-security/en-US/3-detection/10-autonomous-monitoring-of-cryptographic-activity-with-kms). This is confirmed by the picture below:
+Lastly I completed the configuration by assigning the Assign Metric form the metric namespace **Pattern1Application/KMSSecurity**. This is confirmed by the picture below:
 
+<div align="center">
 
+![image](https://github.com/user-attachments/assets/b5b561e4-53c4-475e-ab08-361cc8158adc)
+<br/>Image 19: Specified the Metric namespace 
+
+</div>
+
+### ii) Create the metric alarm
+
+Once the metric filter had been created I had to create the Metric Alarm from this filter. I choose the metric filter I had created and selected the create alarm option as seen in the image below:
+
+<div align="center">
+
+![image](https://github.com/user-attachments/assets/3b8cbbe0-83e3-453d-a618-f1553db7a5df)  
+<br/>Image 20: Created the metric alarm 
+
+</div>
+
+Next I changed the name of the metric to KMSsecurityError and set the preriod to 10 seconds as seen in the picture below.
+
+<div align="center">
+
+  ![image](https://github.com/user-attachments/assets/92bcebaf-68b5-43f7-8638-248c75786a4c)
+<br/>Image 21: Changed the name of the security filter 
+
+</div>
+
+Next, within the conditions dialog box I set the threshold type as static, the condition as **Greater > threshold** and set the threshold value as 1. This can be confirmed by the image below:
+
+<div align="center">
+
+  ![image](https://github.com/user-attachments/assets/8bc9288a-f738-439e-be25-dabc1f3b8215)
+<br/>Image 22: Conditions for the metric 
+
+</div>
+
+Under the additional configuration settings I set the number of datapoints within the evaluation period that must be breached as 1 out of one so that an form of data breach can be picked up. I also set that mising data should be ignored as seen by the diagram below:
+
+<div align="center">
+
+  ![image](https://github.com/user-attachments/assets/446994c8-e854-43d6-a3a2-3d0b8e0a2380)
+<br/>Image 23: Additional configuration 
+
+</div>
+
+Next, in the notification dialogue I configured the Select In alarm as the Alarm trigger state. I created a new topic and set pattern1-logging-topic as the topic name as seen in the below photograph.
+
+<div align="center">
+
+  ![image](https://github.com/user-attachments/assets/621440c5-52f2-4a0a-ac08-db35d0150ca5)
+<br/>Image 24: Notification dialogue settings 
+
+</div>
+
+After completing the configuration and creating the alarm I received an email and confirmed the subscription to the topic a seen in the image below:
+
+<div align="center">
+
+  ![image](https://github.com/user-attachments/assets/24550556-cda8-4fe8-9cd2-a55f2758d3ff)
+<br/>Image 25: Topic subscription confirmed
+
+</div>
 
 ## 2.5 Test the workload functionality
 
