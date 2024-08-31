@@ -200,9 +200,29 @@ In order to test the application I created the variable **ALBURL** and assigned 
 
 I finished this stage of the lab by taking note of the key from the output given. The key has been highlighted.
 
-
-
 ## 2.3 Configure CloudTrail
+
+During this stage I focused on the creation and configuration of the AWS CloudTrail service. This represents the source of record for all API calls generated within the architecture which filters will be applied later.
+
+### i) Command Line Deployment
+
+I downloaded the logging template and proceeded to execute the command **aws cloudformation create-stack** with all the necessary parameters. The arn of OutputPattern1ECSTaskRole was a necessary parameter that was utilized here as shown in the image below:
+
+<div align="center">
+
+  ![image](https://github.com/user-attachments/assets/9f5df3c7-fc6f-40bc-9b55-b22e76232b20)
+<br/>Image 15: Created te pattern1-logging tack 
+
+</div>
+
+I proceeded to the amazon console to confirm that the stack was successfully created as shown in the image below:
+
+<div align="center">
+
+  ![image](https://github.com/user-attachments/assets/bc1075b6-c922-4621-b86b-d58ae4c9b18d)
+<br/>Image 16: Confirmed the creation of pattern1-logging stack 
+
+</div>
 
 ## 2.4 Configure the workload and logging alarm
 
