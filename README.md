@@ -10,12 +10,12 @@
 &nbsp; 2.5 [Test the workload functionality](https://github.com/the-original-copy/Autonomous-Monitoring-Of-Cryptographic-Activity-With-KMS/blob/main/README.md#25-test-the-workload-functionality) </br>
 3 [Conclusion](https://github.com/the-original-copy/Autonomous-Monitoring-Of-Cryptographic-Activity-With-KMS/blob/main/README.md#3-conclusion)
 
-# 1. Introduction
+#  Introduction
 
 Ensuring a robust security posture in cloud-based applications requires the capability to trace and automatically respond to security events. By diligently monitoring key
 activity metrics, architects can identify potentially malicious behavior early on, allowing for timely and appropriate responses. This proactive approach, paired with effective alerting systems, creates an autonomous feedback loop that keeps cloud administrators informed and able to mitigate risks before they escalate into serious incidents. This repository explores the integration of AWS CloudTrail, Amazon CloudWatch, and other services to enhance security monitoring and automated responses within an AWS environment.
 
-# 2. Methodology
+#  Methodology
 
 In order to achieve the intended goal of autonomous monitoring of cyrtographic activities with KMS I would have to accomplish the following tasks:
 1. Deploy the base lab infrastructure
@@ -24,7 +24,7 @@ In order to achieve the intended goal of autonomous monitoring of cyrtographic a
 4. Configure the workload and logging alarm
 5. Test the workload functionality
 
-## 2.1 Deploy the base lab infrastructure
+##  Deploy the base lab infrastructure
 
 In order to perform this lab I had to have certain prerequisites which included an aws account that is able to be used for testing, the ability to execute aws commands in cli
 and docker version 18.09.9 or above. The first two prerequisites had already been met, I installed docker as confirmed by the picture below:
@@ -71,7 +71,7 @@ As a final confirmation procedure I went to the amazon console and as shown belo
 
 </div>
 
-## 2.2 Configure the ECS repository and deploy the application stack
+##  Configure the ECS repository and deploy the application stack
 
 In this section I had to prepare the sample application. I had to package it as a docker image and push it to a repository. Since I did this lab after the cloud 9 services had been discontinued I packaged the docker image and pushed it to the repository from my local machine.
 
@@ -200,7 +200,7 @@ In order to test the application I created the variable **ALBURL** and assigned 
 
 I finished this stage of the lab by taking note of the key from the output given. The key has been highlighted.
 
-## 2.3 Configure CloudTrail
+##  Configure CloudTrail
 
 During this stage I focused on the creation and configuration of the AWS CloudTrail service. This represents the source of record for all API calls generated within the architecture which filters will be applied later.
 
@@ -224,7 +224,7 @@ I proceeded to the amazon console to confirm that the stack was successfully cre
 
 </div>
 
-## 2.4 Configure the workload and logging alarm
+##  Configure the workload and logging alarm
 
 At this stage I was going to create a filter within my CloudWatch Log Group. This filter is to generate a CloudWatch metric which I will use to create the alarm. In order to create the filter I navigated to CloudWatch, choose the log group I created and from the actions pane selected create metric filter a shown in the image below:
 
@@ -309,7 +309,7 @@ After completing the configuration and creating the alarm I received an email an
 
 </div>
 
-## 2.5 Test the workload functionality
+##  Test the workload functionality
 
 At this point I had to test the workload. I did this by running the decrypt API call to the application. This will trigger a failed decrypt event which should result in the alarm being triggered and an SNS notification sent to the email address specified.
 
@@ -353,7 +353,7 @@ I clicked the URL in the email and saw an activity change as shown in the email 
 
 </div>
 
-# 3. Conclusion
+#  Conclusion
 
 In this lab, we demonstrated how to monitor the Key Management Service (KMS) for encryption and decryption activities, detect anomalies, and respond accordingly. By leveraging AWS CloudTrail for capturing API events, Amazon CloudWatch for logging and metric filtering, and Amazon Simple Notification Service (SNS) for alerting, we established a comprehensive monitoring solution. The lab provided both CloudFormation templates and manual steps to set up the necessary infrastructure, enabling flexibility in deployment. Through these tools and techniques, administrators can maintain a high level of security and responsiveness, ensuring the integrity and confidentiality of their applications in the cloud.
  
